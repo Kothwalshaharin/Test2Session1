@@ -1,54 +1,30 @@
-#include<stdio.h>
-int input_array_size()
-{
-  int n;
-  printf("enter the numbers want to sum of\n");
-  scanf("%d",&n);
-  return n;
+#include <stdio.h>
+int input_side(){
+    int n;
+    printf("Enter a length of a triangle :\n ");
+    scanf("%d",&n);
+    return n;
 }
-void input_array(int n, int a[n])
-{
-  int i;
-  for(i=0;i<n;i++)
-  {
-    printf("enter the  number\n");
-    scanf("%d",&a[i]);
-  }
-}
-int is_composite(int x)
-{
-  int value,i;
-  value=0;
-  for(i=1;i<=x/2;i++)
-    {
-      if(x%i==0)
-        value = value+1;
-      else 
-        value = value;
+int check_scalene(int a,int b,int c){
+    if (a != b && b != c && a != c){
+        return 1;
     }
-  return value;
-}
-int sum_composite(int n, int a[n])
-{
-  int i, sum;
-  sum = 0;
-  for(i=0;i<n;i++)
-    {
-      if(is_composite(a[i])>1)
-        sum = sum+a[i];
+    else if ((a == b && b != c && a != c) || (a != b && b == c && a != c) || (a =! b && b != c && a == c)){
+        return 2;
     }
-  return sum;
+    else if (a == b && b == c && a == c){
+        return 3;
+    }
 }
-void out_put(int sum_composite)
-{
-  printf("sum of composite numbers are %d\n", sum_composite);
+void output(int a,int c,int isscalene){
+    isscalene == 1 ? printf("The triangle is scalane") : (isscalene == 2 ? printf("The triangle is isosceles") : (isscalene == 3 ? printf("The triangle is equilateral") : printf("error")));
 }
-int main()
-{
-  int n, i, a[i],Sum;
-  n=input_array_size();
-  input_array(n,a);
-  Sum = sum_composite(n,a);
-  out_put(Sum);
-  return 0;
+int main(){
+    int a,b,c,isscalene;
+    a = input_side();
+    b = input_side();
+    c = input_side();
+    isscalene = check_scalene(a,b,c);
+    output(a,c,isscalene);
+    return 0;
 }

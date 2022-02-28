@@ -1,5 +1,5 @@
-~/Test2Session1$ gcc -g p2original.c
-~/Test2Session1$ gdb a.out
+gcc -g p2original.c
+ gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -16,50 +16,34 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8f3: file p2original.c, line 47.
+Breakpoint 1 at 0x89d: file p2original.c, line 24.
 (gdb) r
 Starting program: /home/runner/Test2Session1/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p2original.c:47
-47  {
+Breakpoint 1, main () at p2original.c:24
+24      a = input_side();
 (gdb) n
-48    int n, i, a[i],Sum;
+Enter a length of a triangle :
+ 2
+25      b = input_side();
 (gdb) n
-49    n=input_array_size();
+Enter a length of a triangle :
+ 3
+26      c = input_side();
 (gdb) n
-enter the numbers want to sum of
-6
-50    input_array(n,a);
-(gdb) a
-Ambiguous command "a": actions, add-auto-load-safe-path, add-auto-load-scripts-directory, add-inferior...
-(gdb) a
-Ambiguous command "a": actions, add-auto-load-safe-path, add-auto-load-scripts-directory, add-inferior...
+Enter a length of a triangle :
+ 1
+27      isscalene = check_scalene(a,b,c);
 (gdb) n
-enter the  number
-5
-enter the  number
-6
-enter the  number
-9
-enter the  number
-8
-enter the  number
-9
-enter the  number
-3
-51    Sum = sum_composite(n,a);
+28      output(a,c,isscalene);
 (gdb) n
-52    out_put(Sum);
+29      return 0;
 (gdb) n
-sum of composite numbers are 32
-53    return 0;
-(gdb) n
-54  }(gdb) n
-__libc_start_main (main=0x563f156008ea <main>, argc=1, 
-    argv=0x7ffc3156f6b8, init=<optimized out>, fini=<optimized out>, 
-    rtld_fini=<optimized out>, stack_end=0x7ffc3156f6a8)
-    at ../csu/libc-start.c:344
+30  }(gdb) n
+__libc_start_main (main=0x55cf37c00895 <main>, argc=1, argv=0x7fff31b8b8e8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fff31b8b8d8) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
-(gdb) Quit
 (gdb) 
+    
